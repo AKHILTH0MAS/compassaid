@@ -1,7 +1,4 @@
-import 'package:compassaid/Mechanic/screens/edit_profile.dart';
-import 'package:compassaid/Mechanic/screens/service_ac_or_reject.dart';
 import 'package:compassaid/Mechanic/screens/status_completed.dart';
-import 'package:compassaid/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {

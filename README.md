@@ -1,4 +1,4 @@
-# demo
+# CompassAid
 
 A new Flutter project.
 
