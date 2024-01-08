@@ -201,8 +201,11 @@ class _StatusPageState extends State<StatusPage> {
               const SizedBox(
                 height: 50,
               ),
-              const Center(
-                child: DefualtButton(text: "Submit"),
+              Center(
+                child: DefualtButton(
+                  text: "Submit",
+                  onTap: () {},
+                ),
               ),
             ] else ...[
               const SizedBox(
@@ -239,8 +242,11 @@ class _StatusPageState extends State<StatusPage> {
               const SizedBox(
                 height: 40,
               ),
-              const Center(
-                child: DefualtButton(text: "Submit"),
+               Center(
+                child: DefualtButton(
+                  text: "Submit",
+                  onTap: () {},
+                ),
               ),
             ]
           ],

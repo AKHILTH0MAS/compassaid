@@ -4,14 +4,14 @@ import 'package:compassaid/Mechanic/utilities/textfieldlogin.dart';
 import 'package:compassaid/colors.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class MechLoginPage extends StatefulWidget {
+  const MechLoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<MechLoginPage> createState() => _MechLoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _MechLoginPageState extends State<MechLoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,7 +108,8 @@ class _LoginPageState extends State<LoginPage> {
                           builder: ((context) => const HomePage())),
                     );
                   },
-                  child: const DefualtButton(
+                  child:  DefualtButton(
+                    onTap: (){},
                     text: "Login",
                   ),
                 ),
@@ -163,30 +164,34 @@ class _LoginPageState extends State<LoginPage> {
 }
 
 class DefualtButton extends StatelessWidget {
-  const DefualtButton({super.key, required this.text});
+  const DefualtButton({super.key, required this.text, required this.onTap});
   final String text;
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 200,
-      height: 50,
-      decoration: ShapeDecoration(
-        color: const Color(0xFF2357D9),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 200,
+        height: 50,
+        decoration: ShapeDecoration(
+          color: const Color(0xFF2357D9),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
         ),
+        child: Center(
+            child: Text(
+          text,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w700,
+            height: 0,
+          ),
+        )),
       ),
-      child: Center(
-          child: Text(
-        text,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 16,
-          fontFamily: 'Poppins',
-          fontWeight: FontWeight.w700,
-          height: 0,
-        ),
-      )),
     );
   }
 }

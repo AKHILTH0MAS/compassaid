@@ -53,7 +53,10 @@ class EditProfileState extends State<EditProfile> {
               const SizedBox(height: 20),
               const ContainerEditProfile(text: "Shop Name"),
               const SizedBox(height: 20),
-              const DefualtButton(text: "Done"),
+              DefualtButton(
+                text: "Done",
+                onTap: () {},
+              ),
               const SizedBox(height: 40)
             ],
           ),

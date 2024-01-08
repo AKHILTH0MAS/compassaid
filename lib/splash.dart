@@ -1,5 +1,5 @@
-import 'package:compassaid/Mechanic/screens/loginPageScreen.dart';
 import 'package:compassaid/colors.dart';
+import 'package:compassaid/landingpage.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -12,15 +12,14 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // TODO: implement initState
-    super.initState();
+      super.initState();
     setState(() {
       Future.delayed(const Duration(seconds: 3 /* should be three seconds*/),
           () {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const LoginPage(),
+            builder: (context) => const Landing(),
           ),
         );
       });

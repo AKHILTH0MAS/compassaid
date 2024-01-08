@@ -1,4 +1,5 @@
-import 'package:compassaid/Mechanic/screens/status_completed.dart';
+import 'package:compassaid/Mechanic/screens/services.dart';
+import 'package:compassaid/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,12 +13,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Flutter Compassaid',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const StatusPage(),
+      home: const ServicesPage(),
     );
   }
 }

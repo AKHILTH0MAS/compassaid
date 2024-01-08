@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:compassaid/Mechanic/screens/services.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,10 +15,29 @@ class _HomePageState extends State<HomePage> {
   Color aceppted = const Color(0xFFE7F0FF);
   Color requested = const Color(0xFFCEE2FF);
   Color selected = const Color(0xFFCEE2FF);
+  final  int  selectedindex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar:   BottomNavigationBar(items: const [
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+        BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+        BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings"),
+      ],
+      onTap: (index){
+        setState(() {
+          if(index==0){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>const HomePage()));
+          }
+          else  if(index==1){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>const ServicesPage()));
+          }
+        });
+      },
+      currentIndex: selectedindex,
+      selectedItemColor: Colors.blue,
+      ),
       appBar: AppBar(
           title: const Text("CompassAid"),
           centerTitle: true,
