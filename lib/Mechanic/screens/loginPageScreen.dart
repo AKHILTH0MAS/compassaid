@@ -108,8 +108,13 @@ class _MechLoginPageState extends State<MechLoginPage> {
                           builder: ((context) => const HomePage())),
                     );
                   },
-                  child:  DefualtButton(
-                    onTap: (){},
+                  child: DefualtButton(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomePage()));
+                    },
                     text: "Login",
                   ),
                 ),

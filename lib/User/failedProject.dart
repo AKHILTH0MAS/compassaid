@@ -1,3 +1,4 @@
+import 'package:compassaid/User/rating.dart';
 import 'package:flutter/material.dart';
 
 class failedProject extends StatefulWidget {
@@ -11,31 +12,21 @@ class _RatingsState extends State<failedProject> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Failed Project',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: const Color(0xffCFE2FF),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: [
             // Top container
-            Container(
-              color: const Color(0xffCFE2FF),
-              height: 75,
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Row(
-                children: [
-                  // Back button
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back_ios),
-                    onPressed: () => Navigator.of(context).pop(),
-                  ),
-                  const Spacer(),
-                  // Title
-                  const Text(
-                    'Failed Project',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  const Spacer(),
-                ],
-              ),
-            ),
 
             const SizedBox(height: 20),
 
@@ -82,8 +73,16 @@ class _RatingsState extends State<failedProject> {
                     Image.asset('assets/star2.png'),
                     Image.asset('assets/star2.png'),
                     Image.asset('assets/star2.png'),
+                    IconButton(
+                      icon: const Icon(Icons.edit),
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute<void>(
+                              builder: (BuildContext context) =>
+                                  const Ratings())),
+                    ),
                   ],
-                )
+                ),
               ],
             ),
             const SizedBox(
@@ -107,16 +106,23 @@ class _RatingsState extends State<failedProject> {
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.8,
-              child: Container(
-                decoration: BoxDecoration(
+              child: SingleChildScrollView(
+                // Wrap the Container with SingleChildScrollView
+                child: Container(
+                  decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: const Color(0xffCFE2FF)),
-                child: TextFormField(
+                    color: const Color(0xffCFE2FF),
+                  ),
+                  child: TextFormField(
                     maxLines: null,
                     keyboardType: TextInputType.multiline,
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15)))),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
 

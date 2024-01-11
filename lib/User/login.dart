@@ -2,15 +2,14 @@ import 'package:compassaid/User/Home.dart';
 import 'package:compassaid/User/Signup.dart';
 import 'package:flutter/material.dart';
 
-
-class UserLoginPage extends StatefulWidget {
-  const UserLoginPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<UserLoginPage> createState() => _UserLoginPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _UserLoginPageState extends State<UserLoginPage> {
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +27,7 @@ class _UserLoginPageState extends State<UserLoginPage> {
                 height: MediaQuery.of(context).size.height * 0.3,
                 child: Center(
                   child: Image.asset(
-                    'assets/tow2.png',
+                    'assets/compassaid_logo.png',
                   ),
                 ),
               ),

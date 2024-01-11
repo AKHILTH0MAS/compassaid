@@ -1,7 +1,10 @@
 import 'package:compassaid/User/Home.dart';
 import 'package:compassaid/User/Profile.dart';
+import 'package:compassaid/User/bill.dart';
+import 'package:compassaid/User/failedProject.dart';
 import 'package:compassaid/User/notification.dart';
 import 'package:flutter/material.dart';
+
 
 class Request extends StatefulWidget {
   const Request({super.key});
@@ -16,6 +19,11 @@ class _RequestState extends State<Request> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 5,
+        backgroundColor: const Color(0xffCFE2FF),
+        automaticallyImplyLeading: false,
+      ),
       body: Column(
         children: [
           // Blue container with profile photo, search, and icon
@@ -86,10 +94,9 @@ class _RequestState extends State<Request> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                    'Name'), // Replace with actual mechanic name
+                                Text('Name'),
                                 Text('date'),
-                                Text('time'), // Add specialties
+                                Text('time'),
                               ],
                             ),
                           ),
@@ -99,17 +106,37 @@ class _RequestState extends State<Request> {
                                 horizontal: 16.0, vertical: 8.0),
                             decoration: BoxDecoration(
                               color: index < 2 ? Colors.green : Colors.red,
-                              borderRadius: BorderRadius.circular(
-                                  10.0), // Increased roundness
-                              // Use a fixed width to ensure equal size for green and red containers
-                              // Adjust based on text length and padding
+                              borderRadius: BorderRadius.circular(10.0),
                             ),
                             child: Center(
-                              child: Text(
-                                index < 2
-                                    ? ['Approved', 'Pay'][index]
-                                    : ['Failed', 'Rejected'][index - 2],
-                                style: const TextStyle(color: Colors.white),
+                              child: GestureDetector(
+                                onTap: () {
+                                  if (index == 1) {
+                                    // Navigate to MechanicBill for "Pay" text
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const MechanicBill(),
+                                      ),
+                                    );
+                                  } else if (index == 2) {
+                                    // Navigate to FailedProject for "Failed" text
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const failedProject(),
+                                      ),
+                                    );
+                                  } // No navigation for "Approved" or "Rejected"
+                                },
+                                child: Text(
+                                  index < 2
+                                      ? ['Approved', 'Pay'][index]
+                                      : ['Failed', 'Rejected'][index - 2],
+                                  style: const TextStyle(color: Colors.white),
+                                ),
                               ),
                             ),
                           ),
@@ -178,6 +205,7 @@ class _RequestState extends State<Request> {
               ],
             ),
           ),
+          // ... (rest of your code for the bottom containers)
         ],
       ),
     );

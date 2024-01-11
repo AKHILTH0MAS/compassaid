@@ -1,7 +1,6 @@
 import 'package:compassaid/User/Home.dart';
 import 'package:flutter/material.dart';
 
-
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
 
@@ -14,6 +13,13 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffCFE2FF),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
       body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Padding(
@@ -27,7 +33,7 @@ class _SignUpState extends State<SignUp> {
                       height: MediaQuery.of(context).size.height * 0.3,
                       child: Center(
                         child: Image.asset(
-                          'assets/tow2.png',
+                          'assets/compassaid_logo.png',
                         ),
                       ),
                     ),

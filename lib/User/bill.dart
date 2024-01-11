@@ -14,31 +14,21 @@ class _MechanicBillState extends State<MechanicBill> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Mechanic Bill',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: const Color(0xffCFE2FF),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: [
             // Top container
-            Container(
-              color: const Color(0xffCFE2FF),
-              height: 75,
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Row(
-                children: [
-                  // Back button
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back_ios),
-                    onPressed: () => Navigator.of(context).pop(),
-                  ),
-                  const Spacer(),
-                  // Title
-                  const Text(
-                    'Mechanic Bill',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  const Spacer(),
-                ],
-              ),
-            ),
 
             const SizedBox(height: 20),
 
@@ -107,7 +97,7 @@ class _MechanicBillState extends State<MechanicBill> {
               ],
             ),
             const SizedBox(
-              height: 100,
+              height: 75,
             ),
             const Padding(
               padding: EdgeInsets.only(right: 225),
@@ -138,7 +128,7 @@ class _MechanicBillState extends State<MechanicBill> {
               ),
             ),
             const SizedBox(
-              height: 150,
+              height: 100,
             ),
             SizedBox(
               child: Center(

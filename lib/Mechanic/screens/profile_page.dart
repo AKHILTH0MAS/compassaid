@@ -1,26 +1,41 @@
+import 'package:compassaid/Mechanic/screens/edit_profile.dart';
 import 'package:compassaid/Mechanic/screens/loginPageScreen.dart';
 import 'package:flutter/material.dart';
 
-class EditProfile extends StatefulWidget {
-  const EditProfile({super.key});
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
 
   @override
-  State<EditProfile> createState() => EditProfileState();
+  State<ProfilePage> createState() => ProfilePageState();
 }
 
-class EditProfileState extends State<EditProfile> {
+class ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: () {},
           icon: const Icon(
             Icons.arrow_back_ios_new,
           ),
         ),
+        actions: [
+          IconButton(
+            iconSize: 30,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const EditProfile(),
+                ),
+              );
+            },
+            icon: const Icon(
+              Icons.edit_square,
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -32,23 +47,25 @@ class EditProfileState extends State<EditProfile> {
               const SizedBox(
                 height: 20,
               ),
-              const EditProfileTextformfeild(text: "Name"),
+              const ContainerEditProfile(text: "Name"),
               const SizedBox(height: 20),
-              const EditProfileTextformfeild(text: "User Name"),
+              const ContainerEditProfile(text: "User Name"),
               const SizedBox(height: 20),
-              const EditProfileTextformfeild(text: "Phone Number"),
+              const ContainerEditProfile(text: "Phone Number"),
               const SizedBox(height: 20),
-              const EditProfileTextformfeild(text: "Email"),
+              const ContainerEditProfile(text: "Email"),
               const SizedBox(height: 20),
-              const EditProfileTextformfeild(text: "Experience"),
+              const ContainerEditProfile(text: "Experience"),
               const SizedBox(height: 20),
-              const EditProfileTextformfeild(text: "Location"),
+              const ContainerEditProfile(text: "Location"),
               const SizedBox(height: 20),
-              const EditProfileTextformfeild(text: "Shop Name"),
+              const ContainerEditProfile(text: "Shop Name"),
               const SizedBox(height: 20),
               DefualtButton(
                 text: "Done",
-                onTap: () {},
+                onTap: () {
+                  Navigator.pop(context);
+                },
               ),
               const SizedBox(height: 40)
             ],
@@ -59,8 +76,8 @@ class EditProfileState extends State<EditProfile> {
   }
 }
 
-class EditProfileTextformfeild extends StatelessWidget {
-  const EditProfileTextformfeild({
+class ContainerEditProfile extends StatelessWidget {
+  const ContainerEditProfile({
     super.key,
     required this.text,
   });
@@ -76,18 +93,17 @@ class EditProfileTextformfeild extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
       ),
-      child: TextFormField(
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          hintText: text,
-          hintStyle: const TextStyle(
-            color: Color(0xFF2357D9),
-            fontSize: 16,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+        child: Text(
+          text,
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 18,
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w400,
             height: 0,
           ),
-          contentPadding: const EdgeInsets.only(left: 20),
         ),
       ),
     );

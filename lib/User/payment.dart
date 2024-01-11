@@ -1,14 +1,14 @@
 import 'package:compassaid/User/Home.dart';
 import 'package:flutter/material.dart';
 
-
 class Payment extends StatelessWidget {
   const Payment({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
+        body: SingleChildScrollView(
+      child: Padding(
         padding: const EdgeInsets.only(top: 100),
         child: Center(
           child: Column(
@@ -54,6 +54,6 @@ class Payment extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ));
   }
 }

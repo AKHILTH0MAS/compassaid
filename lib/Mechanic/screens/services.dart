@@ -1,3 +1,5 @@
+import 'package:compassaid/Mechanic/screens/home_page.dart';
+import 'package:compassaid/Mechanic/screens/ratings.dart';
 import 'package:compassaid/Mechanic/utilities/textfieldlogin.dart';
 import 'package:flutter/material.dart';
 
@@ -73,9 +75,33 @@ class _ServicesPageState extends State<ServicesPage> {
         });
   }
 
+  int selectedindex = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.settings), label: "Settings"),
+          BottomNavigationBarItem(icon: Icon(Icons.star), label: "Ratings"),
+        ],
+        onTap: (index) {
+          setState(() {
+            if (index == 0) {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const HomePage()));
+            } else if (index == 1 && selectedindex == index) {
+              null;
+            } else if (index == 2) {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const RatingPage()));
+            }
+          });
+        },
+        currentIndex: selectedindex,
+        selectedItemColor: Colors.blue,
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showpopupDialog(context);

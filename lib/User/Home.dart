@@ -1,9 +1,8 @@
 import 'package:compassaid/User/Profile.dart';
-import 'package:compassaid/User/home%20demo.dart';
+import 'package:compassaid/User/homedemo.dart';
 import 'package:compassaid/User/needed%20service.dart';
 import 'package:compassaid/User/notification.dart';
 import 'package:flutter/material.dart';
-
 
 class Mechanic extends StatefulWidget {
   const Mechanic({super.key});
@@ -15,22 +14,20 @@ class Mechanic extends StatefulWidget {
 class _MechanicState extends State<Mechanic> {
   final containerColor = const Color(0xffCFE2FF);
 
-  final servicesList = [
-    'Fuel Leaking',
-    'Battery Check',
-    'break pad replacement',
-    'tyre changing and replacement'
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 5,
+        backgroundColor: const Color(0xffCFE2FF),
+        automaticallyImplyLeading: false,
+      ),
       body: Column(
         children: [
           // Top container
           Container(
             color: containerColor,
-            height: 75,
+            height: 80,
             child: Row(
               children: [
                 // Profile photo
@@ -85,7 +82,16 @@ class _MechanicState extends State<Mechanic> {
                 bool isAvailable = index % 2 == 0;
                 String experienceLevel =
                     index == 0 ? '2+ year experience' : '1+ year experience';
-
+                String servicesList;
+                if (index == 0) {
+                  servicesList = 'fuel leaking';
+                } else if (index == 1) {
+                  servicesList = 'Battery Check';
+                } else if (index == 2) {
+                  servicesList = 'break pad replacement';
+                } else {
+                  servicesList = 'Tyre changing and replacement';
+                }
                 return Padding(
                   padding: const EdgeInsets.only(right: 25, left: 25, top: 20),
                   child: Card(
@@ -104,7 +110,7 @@ class _MechanicState extends State<Mechanic> {
                             ],
                           ),
 
-                          const SizedBox(width: 10),
+                          const SizedBox(width: 30),
 
                           // Right container with details
                           Expanded(
@@ -112,25 +118,37 @@ class _MechanicState extends State<Mechanic> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 // Experience level
-                                Text(experienceLevel),
+                                Text(experienceLevel,
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'Poppins',
+                                        color: Colors.black)),
 
-                                // Services in a separate column
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: servicesList
-                                      .map((service) => Text(service))
-                                      .toList(),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                Column(children: [
+                                  Text(servicesList,
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Poppins',
+                                          color: Colors.black)),
+                                ]),
+                                const SizedBox(
+                                  height: 20,
                                 ),
                                 // Availability container
                                 GestureDetector(
                                   onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            const NeededServices(),
-                                      ),
-                                    );
+                                    if (isAvailable) {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              const NeededServices(),
+                                        ),
+                                      );
+                                    }
                                   },
                                   child: Container(
                                     width: 110,

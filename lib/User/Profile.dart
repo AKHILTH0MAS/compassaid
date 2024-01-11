@@ -1,33 +1,21 @@
 import 'package:flutter/material.dart';
 
-
 class Profile extends StatelessWidget {
   const Profile({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          // Back button
-          Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: MediaQuery.of(context).size.width * 0.1),
-            child: Row(
-              children: [
-                SizedBox(
-                  height: 100,
-                  child: IconButton(
-                    icon: const Icon(Icons.arrow_back_ios),
-                    onPressed: () =>
-                        Navigator.pop(context), // Return to previous page
-                  ),
-                ),
-              ],
-            ),
-          ),
-
           // Image and name
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -139,7 +127,7 @@ class Profile extends StatelessWidget {
                     ),
                     // Done button
                     const SizedBox(
-                      height: 225,
+                      height: 200,
                     ),
                     SizedBox(
                       child: Center(

@@ -59,7 +59,7 @@ class _ServiceAcceptorRejectState extends State<ServiceAcceptorReject> {
                       ),
                       const SizedBox(height: 20),
                       const RowServiceCard(
-                          title: "Place", subtitle: "KOzhikode Beach Road"),
+                          title: "Place", subtitle: " Beach Road"),
                       const SizedBox(height: 20),
                       const RowServiceCard(title: "Date", subtitle: "01/02/23"),
                       const SizedBox(
@@ -74,24 +74,29 @@ class _ServiceAcceptorRejectState extends State<ServiceAcceptorReject> {
                       ),
                       Row(
                         children: [
-                          Container(
-                            width: 110,
-                            height: 40,
-                            decoration: ShapeDecoration(
-                              color: const Color(0xFF49CD6E),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Container(
+                              width: 110,
+                              height: 40,
+                              decoration: ShapeDecoration(
+                                color: const Color(0xFF49CD6E),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
                               ),
-                            ),
-                            child: const Center(
-                              child: Text(
-                                'Accept',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w700,
-                                  height: 0,
+                              child: const Center(
+                                child: Text(
+                                  'Accept',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w700,
+                                    height: 0,
+                                  ),
                                 ),
                               ),
                             ),
